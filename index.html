@@ -1499,17 +1499,17 @@
 
         @media (max-width: 768px) {
           .container > .envelope-wrapper {
-            transform: scale(0.9);
+            transform: scale(1);
           }
 
           .flowers.left {
-            left: -5%;
-            transform: scale(0.5) scaleX(-1);
+            left: -10%;
+            transform: scale(0.3) scaleX(-1);
           }
 
           .flowers.right {
-            right: -5%;
-            transform: scale(0.5);
+            right: -10%;
+            transform: scale(0.3);
           }
 
           .music-control {
@@ -1533,25 +1533,32 @@
           body {
             min-height: 100vh;
             overflow-y: auto;
+            padding: 20px 0;
+          }
+
+          .container {
+            min-height: 100vh;
           }
 
           .container > .envelope-wrapper {
-            transform: scale(0.75);
+            transform: scale(1);
           }
 
           .flowers.left {
-            left: -15%;
-            transform: scale(0.35) scaleX(-1);
+            left: -20%;
+            transform: scale(0.25) scaleX(-1);
+            bottom: 10%;
           }
 
           .flowers.right {
-            right: -15%;
-            transform: scale(0.35);
+            right: -20%;
+            transform: scale(0.25);
+            bottom: 10%;
           }
 
           .music-control {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             font-size: 18px;
             top: 15px;
             right: 15px;
@@ -1567,34 +1574,36 @@
           }
 
           .envelope-wrapper > .envelope {
-            width: 300px;
-            height: 240px;
+            width: 320px;
+            height: 260px;
           }
 
           .envelope-wrapper > .envelope::before {
-            border-top: 130px solid var(--envelope-tab);
-            border-right: 150px solid transparent;
-            border-left: 150px solid transparent;
+            border-top: 140px solid var(--envelope-tab);
+            border-right: 160px solid transparent;
+            border-left: 160px solid transparent;
           }
 
           .envelope-wrapper > .envelope::after {
-            border-top: 130px solid transparent;
-            border-right: 150px solid var(--envelope-cover);
-            border-bottom: 110px solid var(--envelope-cover);
-            border-left: 150px solid var(--envelope-cover);
+            border-top: 140px solid transparent;
+            border-right: 160px solid var(--envelope-cover);
+            border-bottom: 120px solid var(--envelope-cover);
+            border-left: 160px solid var(--envelope-cover);
           }
 
           .envelope > .letter {
-            padding: 20px 12px;
-            font-size: 12px;
+            padding: 22px 13px;
+            font-size: 13px;
+            right: 18%;
           }
 
           .envelope > .letter > .text {
-            font-size: 11px;
+            font-size: 12px;
+            line-height: 1.5;
           }
 
           .envelope > .letter > .text strong {
-            font-size: 14px;
+            font-size: 15px;
           }
 
           .click-me {
@@ -1605,26 +1614,31 @@
             width: 10px;
             height: 10px;
           }
+
+          .flap > .envelope > .letter {
+            bottom: 130px;
+            transform: scale(1.5);
+          }
         }
 
         @media (max-width: 480px) {
           .container > .envelope-wrapper {
-            transform: scale(0.65);
+            transform: scale(1);
           }
 
           .flowers.left {
-            left: -25%;
-            transform: scale(0.25) scaleX(-1);
+            left: -30%;
+            transform: scale(0.2) scaleX(-1);
           }
 
           .flowers.right {
-            right: -25%;
-            transform: scale(0.25);
+            right: -30%;
+            transform: scale(0.2);
           }
 
           .music-control {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             font-size: 16px;
             top: 12px;
             right: 12px;
@@ -1635,24 +1649,29 @@
             font-size: 18px;
           }
 
+          .envelope-wrapper > .envelope {
+            width: 320px;
+            height: 260px;
+          }
+
           .click-me {
-            font-size: 14px;
+            font-size: 15px;
           }
 
           .envelope > .letter > .text {
-            font-size: 10px;
-            line-height: 1.4;
+            font-size: 12px;
+            line-height: 1.5;
           }
 
           .petal {
-            width: 8px;
-            height: 8px;
+            width: 9px;
+            height: 9px;
           }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 380px) {
           .container > .envelope-wrapper {
-            transform: scale(0.55);
+            transform: scale(0.95);
           }
 
           .flowers {
@@ -1660,17 +1679,37 @@
           }
 
           .music-control {
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             font-size: 14px;
           }
 
+          .envelope-wrapper::before,
+          .envelope-wrapper::after {
+            font-size: 16px;
+          }
+
           .click-me {
-            font-size: 12px;
+            font-size: 14px;
           }
 
           .envelope > .letter {
-            padding: 15px 10px;
+            padding: 18px 11px;
+            font-size: 12px;
+          }
+
+          .envelope > .letter > .text {
+            font-size: 11px;
+            line-height: 1.4;
+          }
+
+          .envelope > .letter > .text strong {
+            font-size: 13px;
+          }
+
+          .petal {
+            width: 8px;
+            height: 8px;
           }
         }
     </style>

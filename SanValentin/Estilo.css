@@ -1,0 +1,140 @@
+/* All your existing CSS code here */
+/* ... (paste all the original CSS and my previous modifications) ... */
+
+:root {
+  --dark-color: #000;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+  position: relative;
+  /* NO animation-play-state here for body itself */
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
+}
+
+.music {
+  position: absolute;
+  top: 0px;
+  z-index: 1000; /* Ensure music player is visible */
+}
+
+.flowers-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 50; /* Ensure flowers are above the night background */
+}
+
+.flowers {
+  position: relative;
+  transform: scale(0.9);
+  pointer-events: auto;
+}
+
+.flowers--left {
+    margin-left: -20vmin;
+    transform-origin: bottom left;
+}
+
+.flowers--right {
+    margin-right: -20vmin;
+    transform: scale(0.9) rotateY(180deg);
+    transform-origin: bottom right;
+}
+
+/* Original flower styling - make sure to keep this */
+.flower {
+  position: absolute;
+  bottom: 10vmin;
+  transform-origin: bottom center;
+  z-index: 10;
+  --fl-speed: 0.3s;
+}
+/* ... (all other flower, leaf, light, grass, long-g styles) ... */
+
+/* KEY FIXES BELOW */
+/* This rule PAUSES animations when the body HAS the 'container' class */
+body.container * {
+  animation-play-state: paused !important;
+}
+
+/* This rule ensures animations RUN when the body DOES NOT HAVE the 'container' class */
+body:not(.container) * {
+  animation-play-state: running !important;
+}
+
+/* Also ensure any elements that should be visible initially are not scaled to 0 or transparent */
+/* For example, the grow-ans animation has 0% { transform: scale(0); opacity: 0; } */
+/* So, the flowers will start invisible and grow. This is expected. */
+
+/* Small adjustments for mirrored elements if they look off initially */
+.flowers--right .flower__line__leaf--1,
+.flowers--right .flower__line__leaf--2,
+.flowers--right .flower__line__leaf--5 {
+  transform: rotate(70deg) rotateY(-30deg); /* Adjust Y rotation for mirrored leaves */
+}
+
+.flowers--right .flower__line__leaf--3,
+.flowers--right .flower__line__leaf--4,
+.flowers--right .flower__line__leaf--6 {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: var(--h);
+  border-bottom-right-radius: var(--h);
+  left: -460%; /* Original left */
+  top: 12%; /* Original top */
+  transform: rotate(-70deg) rotateY(-30deg); /* Adjust Y rotation for mirrored leaves */
+}
+
+.flowers--right .flower__g-front__leaf-wrapper:nth-child(even) {
+  left: 0vmin;
+  transform: rotateY(0deg) rotate(-5deg); /* Re-adjust for mirroring */
+}
+.flowers--right .flower__g-front__leaf-wrapper:nth-child(odd) {
+  transform: rotateY(180deg) rotate(-10deg); /* Re-adjust for mirroring */
+}
+
+
+/* Adjust long-g elements for the right side if they are mirrored and look incorrect */
+.flowers--right .long-g .leaf--0 {
+    transform: rotate(5deg) scale(1); /* Invert rotation for mirrored */
+}
+.flowers--right .long-g .leaf--1 {
+    transform: rotate(5deg) scale(1); /* Invert rotation for mirrored */
+}
+.flowers--right .long-g .leaf--2 {
+    transform: rotateY(0deg) rotate(-5deg); /* Invert rotation for mirrored */
+}
+.flowers--right .long-g .leaf--3 {
+    transform: rotate(10deg) rotateY(0deg); /* Invert rotation for mirrored */
+}
+
+/*
+It's important to understand that when you apply `rotateY(180deg)` to a parent,
+all child elements are also mirrored. This means their `left`/`right` properties
+and `rotateY` values within their `transform` might need to be adjusted
+to maintain their intended visual direction relative to the mirrored parent.
+You may need to inspect each animated element in your browser's developer tools
+to fine-tune their appearance on the right side.
+*/

@@ -1480,6 +1480,199 @@
             transform: scale(1.2);
           }
         }
+
+        /* ========== MEDIA QUERIES PARA RESPONSIVE ========== */
+        
+        @media (max-width: 1024px) {
+          .flowers.left {
+            left: 5%;
+          }
+
+          .flowers.right {
+            right: 5%;
+          }
+
+          .container > .envelope-wrapper {
+            transform: scale(1.1);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .container > .envelope-wrapper {
+            transform: scale(0.9);
+          }
+
+          .flowers.left {
+            left: -5%;
+            transform: scale(0.5) scaleX(-1);
+          }
+
+          .flowers.right {
+            right: -5%;
+            transform: scale(0.5);
+          }
+
+          .music-control {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+          }
+
+          .envelope-wrapper::before,
+          .envelope-wrapper::after {
+            font-size: 24px;
+          }
+
+          .petal {
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          body {
+            min-height: 100vh;
+            overflow-y: auto;
+          }
+
+          .container > .envelope-wrapper {
+            transform: scale(0.75);
+          }
+
+          .flowers.left {
+            left: -15%;
+            transform: scale(0.35) scaleX(-1);
+          }
+
+          .flowers.right {
+            right: -15%;
+            transform: scale(0.35);
+          }
+
+          .music-control {
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+            top: 15px;
+            right: 15px;
+          }
+
+          .envelope-wrapper::before,
+          .envelope-wrapper::after {
+            font-size: 20px;
+            top: -12px;
+            bottom: -12px;
+            left: -12px;
+            right: -12px;
+          }
+
+          .envelope-wrapper > .envelope {
+            width: 300px;
+            height: 240px;
+          }
+
+          .envelope-wrapper > .envelope::before {
+            border-top: 130px solid var(--envelope-tab);
+            border-right: 150px solid transparent;
+            border-left: 150px solid transparent;
+          }
+
+          .envelope-wrapper > .envelope::after {
+            border-top: 130px solid transparent;
+            border-right: 150px solid var(--envelope-cover);
+            border-bottom: 110px solid var(--envelope-cover);
+            border-left: 150px solid var(--envelope-cover);
+          }
+
+          .envelope > .letter {
+            padding: 20px 12px;
+            font-size: 12px;
+          }
+
+          .envelope > .letter > .text {
+            font-size: 11px;
+          }
+
+          .envelope > .letter > .text strong {
+            font-size: 14px;
+          }
+
+          .click-me {
+            font-size: 16px;
+          }
+
+          .petal {
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .container > .envelope-wrapper {
+            transform: scale(0.65);
+          }
+
+          .flowers.left {
+            left: -25%;
+            transform: scale(0.25) scaleX(-1);
+          }
+
+          .flowers.right {
+            right: -25%;
+            transform: scale(0.25);
+          }
+
+          .music-control {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            top: 12px;
+            right: 12px;
+          }
+
+          .envelope-wrapper::before,
+          .envelope-wrapper::after {
+            font-size: 18px;
+          }
+
+          .click-me {
+            font-size: 14px;
+          }
+
+          .envelope > .letter > .text {
+            font-size: 10px;
+            line-height: 1.4;
+          }
+
+          .petal {
+            width: 8px;
+            height: 8px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .container > .envelope-wrapper {
+            transform: scale(0.55);
+          }
+
+          .flowers {
+            display: none;
+          }
+
+          .music-control {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+          }
+
+          .click-me {
+            font-size: 12px;
+          }
+
+          .envelope > .letter {
+            padding: 15px 10px;
+          }
+        }
     </style>
 </head>
 <body>
@@ -1507,7 +1700,7 @@
             <div class="envelope">
                 <div class="letter">
                     <div class="text">
-                        <strong>Sofia❤️</strong>
+                        <strong>Para Sofia❤️</strong>
                         <p>
                             Pero mírate: linda, tierna, hermosa. Algunos podrían llamarte fabulosa, humilde, graciosa, agraciada.
 
@@ -1520,7 +1713,7 @@ No es un insulto cuando te llamo diferente; insulto sería si yo te dijera que e
             </div>
             <div class="heart"></div>
             <div class="click-me">
-                <p>✨ Toca el ❤️ ✨</p>
+                <p>✨ Toca el corazón ✨</p>
             </div>
         </div>
     </div>
@@ -2029,5 +2222,4 @@ No es un insulto cuando te llamo diferente; insulto sería si yo te dijera que e
         });
     </script>
 </body>
-
 </html>
